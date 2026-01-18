@@ -1,17 +1,17 @@
-# Ignore large waveform files
+# Ignore large waveform files (except committed ones)
 *.vcd
 *.ghw
 *.fst
 
-# Ignore simulation artifacts
-*.vvp
+# Ignore simulation artifacts (except key ones)
+# *.vvp
 *.o
 *.out
 
-# Ignore build artifacts
-*.elf
-*.bin
-*.hex
+# Ignore build artifacts (except firmware)
+# *.elf
+# *.bin
+# *.hex
 
 # IDE
 .vscode/
