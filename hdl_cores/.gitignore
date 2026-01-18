@@ -1,0 +1,30 @@
+# Ignore large waveform files
+*.vcd
+*.ghw
+*.fst
+
+# Ignore simulation artifacts
+*.vvp
+*.o
+*.out
+
+# Ignore build artifacts
+*.elf
+*.bin
+*.hex
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vivado (if needed later)
+*.xpr
+*.runs/
+*.xpr.user
+.Xil/
