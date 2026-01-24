@@ -1,4 +1,10 @@
 `timescale 1 ns / 1 ps
+
+// RISC-V SoC Module for Vivado Integration
+// Clock and Reset must come from Zynq UltraScale+ MPSoC:
+//   - clk: Connect to Zynq pl_clk0 (set to 100 MHz)
+//   - resetn: Connect to Zynq pl_resetn0
+// UART Signals must be mapped to PMOD headers via .xdc constraints
 module system (
     input wire clk,
     input wire resetn,
@@ -10,9 +16,11 @@ module system (
     wire [31:0] mem_addr, mem_wdata, mem_rdata_cpu;
     reg  [31:0] mem_rdata;
     wire [3:0] mem_wstrb;
+    
+    (* rom_style = "block" *)  // Force Block RAM for Vivado synthesis
     reg [31:0] memory [0:4095]; // Memory size is 4096 words (16KB) to match linker script
 
-    initial $readmemh("firmware.hex", memory);
+    initial $readmemh("firmware.hex", memory);  // Vivado: ensure firmware.hex is in project root
 
     picorv32 cpu (
         .clk(clk), .resetn(resetn),

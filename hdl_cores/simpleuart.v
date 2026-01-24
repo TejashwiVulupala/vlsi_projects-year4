@@ -36,7 +36,7 @@ module simpleuart (
 
     always @(posedge clk) begin
         if (!resetn) begin
-            cfg_divider <= 1;
+            cfg_divider <= 868;  // 100MHz / 115200 baud = 868
             recv_state <= 0;
             recv_divcnt <= 0;
             recv_pattern <= 0;
