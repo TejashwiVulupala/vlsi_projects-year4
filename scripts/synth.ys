@@ -1,0 +1,16 @@
+# 1. READ ASSET
+read_verilog rtl/*.v
+
+# 2. HIERARCHY & PRE-OPTIMIZE
+hierarchy -check -top system
+proc; opt; fsm; opt; memory; opt
+
+# 3. XILINX MAPPING (Zynq-7000 Target)
+# This handles the LUT6, CARRY4, and DSP48E1 mapping
+synth_xilinx -top system
+
+# 4. AREA REPORT (The "A" in PPA)
+# Shows exactly where your 2283 LCs are
+stat -width
+
+# 5. TIMING ANALYSIS (The "P" in PPA)
