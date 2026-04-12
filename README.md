@@ -59,6 +59,7 @@ You have chosen Bare-Metal Single-Port over complex Caches/FSMs for V1.0 to mast
 
 * **Transparency:** You can see every single clock cycle spent on the bus. Caches "hide" latencies; Bare-metal exposes them.
 * **Resource Floor:** This provides a baseline of 2,175 LUTs (12.36% utilization).
+
 * **Benchmarking:** You now have a proven 12.9x speedup. Any future optimizations now have a verified mathematical baseline to measure against.
 
 ## 🚀 Terminal Execution: Repository Setup
